@@ -1,14 +1,40 @@
-.construction_sign {
-  width: 100%;
-  height: 100%;
+html, body, h1, h2, h3, h4, ul, li, ol, dl, dt, dd, p, form, fieldset, label, img, table, blockquote {
+  padding: 0;
+  margin: 0;
+  font-size: 100%;
+  font-weight: normal;
+  border: 0;
+}
+html {
+  font: normal normal 125%/1.3 Times New Roman, Georgia, serif;
+  -webkit-text-size-adjust: none;
 }
 
-.construction_sign td {
-  text-align: center;
-  vertical-align: center;
+body {
+  color: #030303;
+  background: #fff;
+}
+.application_container {
+  max-width: 40em;
+  margin: 0 auto;
+  padding: 2rem 0;
 }
 
-html, body, #application-root {
-  min-height: 100%;
-  height: 100%;
+.application_header {
+  box-sizing: border-box;
+  max-width: 30em;
+  padding: calc(.75rem - 3px) calc(1rem - 3px);
+
+  letter-spacing: 2px;
+  text-transform: uppercase;
+
+  border: 3px solid #000;
+  background: #ffc0c0;
+
+  font-size: .9rem;
+  line-height: 1.16;
+}
+
+.application_header-title {
+  font-weight: bold;
 }

@@ -7,13 +7,21 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _ConstructionSign = require("ConstructionSign");
+var _ApplicationContainer = require("ApplicationContainer");
 
-var _ConstructionSign2 = _interopRequireDefault(_ConstructionSign);
+var _ApplicationContainer2 = _interopRequireDefault(_ApplicationContainer);
 
-_react2["default"].render(_react2["default"].createElement(_ConstructionSign2["default"], null), document.getElementById("application-root"));
+var _ApplicationHeader = require("ApplicationHeader");
 
-},{"ConstructionSign":158,"react":157}],2:[function(require,module,exports){
+var _ApplicationHeader2 = _interopRequireDefault(_ApplicationHeader);
+
+_react2["default"].render(_react2["default"].createElement(
+  _ApplicationContainer2["default"],
+  null,
+  _react2["default"].createElement(_ApplicationHeader2["default"], null)
+), document.getElementById("application-root"));
+
+},{"ApplicationContainer":158,"ApplicationHeader":159,"react":157}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -19842,40 +19850,83 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var ConstructionSign = (function (_React$Component) {
-  function ConstructionSign() {
-    _classCallCheck(this, ConstructionSign);
+var ApplicationContainer = (function (_React$Component) {
+  function ApplicationContainer() {
+    _classCallCheck(this, ApplicationContainer);
 
     if (_React$Component != null) {
       _React$Component.apply(this, arguments);
     }
   }
 
-  _inherits(ConstructionSign, _React$Component);
+  _inherits(ApplicationContainer, _React$Component);
 
-  _createClass(ConstructionSign, [{
+  _createClass(ApplicationContainer, [{
     key: "render",
     value: function render() {
       return _react2["default"].createElement(
-        "table",
-        { className: "construction_sign" },
+        "main",
+        { className: "application_container" },
+        this.props.children
+      );
+    }
+  }]);
+
+  return ApplicationContainer;
+})(_react2["default"].Component);
+
+exports["default"] = ApplicationContainer;
+module.exports = exports["default"];
+
+},{"react":157}],159:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var ApplicationHeader = (function (_React$Component) {
+  function ApplicationHeader() {
+    _classCallCheck(this, ApplicationHeader);
+
+    if (_React$Component != null) {
+      _React$Component.apply(this, arguments);
+    }
+  }
+
+  _inherits(ApplicationHeader, _React$Component);
+
+  _createClass(ApplicationHeader, [{
+    key: "render",
+    value: function render() {
+      return _react2["default"].createElement(
+        "header",
+        { className: "application_header" },
         _react2["default"].createElement(
-          "tr",
-          null,
-          _react2["default"].createElement(
-            "td",
-            null,
-            _react2["default"].createElement("img", { src: "/images/fetch.gif", alt: "Under Construction" })
-          )
+          "h1",
+          { className: "application_header-title" },
+          "Верстающий Фатеж"
         )
       );
     }
   }]);
 
-  return ConstructionSign;
+  return ApplicationHeader;
 })(_react2["default"].Component);
 
-exports["default"] = ConstructionSign;
+exports["default"] = ApplicationHeader;
 module.exports = exports["default"];
 
 },{"react":157}]},{},[1]);
