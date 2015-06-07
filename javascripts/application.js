@@ -15,13 +15,18 @@ var _ApplicationHeader = require("ApplicationHeader");
 
 var _ApplicationHeader2 = _interopRequireDefault(_ApplicationHeader);
 
+var _Post = require("Post");
+
+var _Post2 = _interopRequireDefault(_Post);
+
 _react2["default"].render(_react2["default"].createElement(
   _ApplicationContainer2["default"],
   null,
-  _react2["default"].createElement(_ApplicationHeader2["default"], null)
+  _react2["default"].createElement(_ApplicationHeader2["default"], null),
+  _react2["default"].createElement(_Post2["default"], { title: "Адроны и кварки", date: "2 июня 2015", contents: "<p>Прежде чем начать разговор о кварковых звездах, напомним основные сведения о кварках. Все, наверное, знают, что многие элементарные частицы, например протоны и нейтроны, не совсем элементарны. Точнее, они не бесструктурны, а состоят из других частиц — кварков. Если принять абсолютную величину заряда электрона за единицу, то заряды всех наблюдаемых элементарных частиц окажутся целыми, но каждый кварк имеет дробный заряд, кратный 1/3. Кварки не встречаются по отдельности, а только в компании с себе подобными. Каждый нуклон, то есть протон или нейтрон, состоит из двух типов кварков, так называемых верхнего и нижнего, или u и d (от английских слов up и down). Протон, электрический заряд которого равен единице, состоит из двух u-кварков, каждый из которых имеет заряд + 2/3, и одного d-кварка с зарядом − 1/3, а нейтрон с его нулевым зарядом — из одного u-кварка и двух d-кварков. Каждому кварку соответствует антикварк с противоположными квантовыми числами — из них, в частности, состоят антипротоны и антинейтроны.</p> <p>Из кварков состоят все частицы, участвующие в сильных (ядерных) взаимодействиях. Такие составные частицы называются адронами. К ним относятся, например, нуклоны, но не электроны. Спин каждого кварка (квантовое число, характеризующее собственный угловой момент частицы) равен 1/2, как у электрона. Спины кварков в адронах могут друг с другом складываться или вычитаться, поэтому те адроны, которые состоят из трех кварков, имеют полуцелый спин (1/2 или 3/2) — так, спины протона и нейтрона равны 1/2. Такие адроны называются барионами. Другие адроны, называемые мезонами, состоят из кварка и антикварка и имеют целый спин — 0 или 1. Строго говоря, некоторые мезоны устроены несколько сложнее, но здесь для нас это несущественно. Важно то, что частицы с полуцелым спином, такие как электроны, барионы и кварки, являются фермионами, то есть распределены по квантовым состояниям в соответствии со статистикой Ферми. Это означает, что для них, в отличие от бозонов (частицы с целым спином), выполняется принцип Паули, запрещающий нескольким фермионам одновременно находиться в одном и том же квантовом состоянии.</p>" })
 ), document.getElementById("application-root"));
 
-},{"ApplicationContainer":158,"ApplicationHeader":159,"react":157}],2:[function(require,module,exports){
+},{"ApplicationContainer":158,"ApplicationHeader":159,"Post":160,"react":157}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -19927,6 +19932,114 @@ var ApplicationHeader = (function (_React$Component) {
 })(_react2["default"].Component);
 
 exports["default"] = ApplicationHeader;
+module.exports = exports["default"];
+
+},{"react":157}],160:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _PostHeader = require("PostHeader");
+
+var _PostHeader2 = _interopRequireDefault(_PostHeader);
+
+var Post = (function (_React$Component) {
+  function Post() {
+    _classCallCheck(this, Post);
+
+    if (_React$Component != null) {
+      _React$Component.apply(this, arguments);
+    }
+  }
+
+  _inherits(Post, _React$Component);
+
+  _createClass(Post, [{
+    key: "render",
+    value: function render() {
+      return _react2["default"].createElement(
+        "article",
+        { className: "post" },
+        _react2["default"].createElement(_PostHeader2["default"], { title: this.props.title, date: this.props.date }),
+        _react2["default"].createElement("section", { className: "post-contents", dangerouslySetInnerHTML: { __html: this.props.contents } })
+      );
+    }
+  }]);
+
+  return Post;
+})(_react2["default"].Component);
+
+exports["default"] = Post;
+module.exports = exports["default"];
+
+},{"PostHeader":161,"react":157}],161:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var PostHeader = (function (_React$Component) {
+  function PostHeader() {
+    _classCallCheck(this, PostHeader);
+
+    if (_React$Component != null) {
+      _React$Component.apply(this, arguments);
+    }
+  }
+
+  _inherits(PostHeader, _React$Component);
+
+  _createClass(PostHeader, [{
+    key: "render",
+    value: function render() {
+      return _react2["default"].createElement(
+        "header",
+        { className: "post-header" },
+        _react2["default"].createElement(
+          "h2",
+          { className: "post-title" },
+          this.props.title
+        ),
+        _react2["default"].createElement(
+          "small",
+          { className: "post-date" },
+          this.props.date
+        )
+      );
+    }
+  }]);
+
+  return PostHeader;
+})(_react2["default"].Component);
+
+exports["default"] = PostHeader;
 module.exports = exports["default"];
 
 },{"react":157}]},{},[1]);
