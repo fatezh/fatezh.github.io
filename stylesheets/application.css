@@ -15,14 +15,14 @@ body {
   background: #fff;
 }
 .application_container {
-  max-width: 40em;
+  max-width: 40rem;
   margin: 0 auto;
   padding: 2rem 0;
 }
 
 .application_header {
   box-sizing: border-box;
-  max-width: 30em;
+  max-width: 33rem;
   padding: calc(.75rem - 3px) calc(1rem - 3px);
 
   letter-spacing: 2px;
@@ -39,10 +39,14 @@ body {
   font-weight: bold;
 }
 .post {
-  padding: 1rem 0 1rem 1rem;
+  padding: 4rem 0 0;
 }
 .post p {
   margin: 0 0 1.5rem;
+}
+
+.post-header {
+  padding: 0 1rem;
 }
 
 .post-title {
@@ -60,6 +64,6 @@ body {
 
 .post-contents {
   box-sizing: border-box;
-  max-width: 30em;
-  padding: 1rem 0;
+  max-width: 33rem;
+  padding: 1rem;
 }
