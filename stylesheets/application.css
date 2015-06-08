@@ -281,6 +281,11 @@ body {
 .application_header-title {
   font-weight: bold;
 }
+
+.application_header-title a {
+  text-decoration: none;
+  color: inherit;
+}
 .post {
   padding: 4rem 0 0;
 }
@@ -299,6 +304,7 @@ body {
 }
 .post pre {
   overflow: auto;
+  margin-right: -7rem;
 }
 .post p {
   margin: 0 0 1.5rem;
@@ -316,6 +322,12 @@ body {
   text-align: left;
 }
 
+@media (max-width: 40rem) {
+  .post pre {
+    margin-right: 0;
+  }
+}
+
 .post-header {
   padding: 0 1rem;
 }
@@ -326,6 +338,11 @@ body {
   font-size: 2.4rem;
   font-weight: bold;
   line-height: 1.2;
+}
+
+.post-title a {
+  text-decoration: none;
+  color: inherit;
 }
 
 .post-date {
