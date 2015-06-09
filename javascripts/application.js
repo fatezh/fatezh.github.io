@@ -37,7 +37,7 @@ _reactRouter2["default"].run(routes, function (Handler) {
   _react2["default"].render(_react2["default"].createElement(Handler, null), document.getElementById("application-root"));
 });
 
-},{"ApplicationContainer":246,"PostsList":250,"SinglePost":251,"react":245,"react-router":76}],2:[function(require,module,exports){
+},{"ApplicationContainer":246,"PostsList":252,"SinglePost":253,"react":245,"react-router":76}],2:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -24519,6 +24519,10 @@ var _PostHeader = require("PostHeader");
 
 var _PostHeader2 = _interopRequireDefault(_PostHeader);
 
+var _PostFooter = require("PostFooter");
+
+var _PostFooter2 = _interopRequireDefault(_PostFooter);
+
 var Post = (function (_React$Component) {
   function Post() {
     _classCallCheck(this, Post);
@@ -24542,7 +24546,8 @@ var Post = (function (_React$Component) {
         "article",
         { className: "post" },
         _react2["default"].createElement(_PostHeader2["default"], { title: this.props.title, date: this.props.date, slug: this.props.slug }),
-        _react2["default"].createElement("section", { className: "post-contents", dangerouslySetInnerHTML: this.getPostContents() })
+        _react2["default"].createElement("section", { className: "post-contents", dangerouslySetInnerHTML: this.getPostContents() }),
+        _react2["default"].createElement(_PostFooter2["default"], this.props.author)
       );
     }
   }]);
@@ -24553,7 +24558,119 @@ var Post = (function (_React$Component) {
 exports["default"] = Post;
 module.exports = exports["default"];
 
-},{"PostHeader":249,"react":245}],249:[function(require,module,exports){
+},{"PostFooter":250,"PostHeader":251,"react":245}],249:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var PostAuthor = (function (_React$Component) {
+  function PostAuthor() {
+    _classCallCheck(this, PostAuthor);
+
+    if (_React$Component != null) {
+      _React$Component.apply(this, arguments);
+    }
+  }
+
+  _inherits(PostAuthor, _React$Component);
+
+  _createClass(PostAuthor, [{
+    key: "render",
+    value: function render() {
+      return _react2["default"].createElement(
+        "section",
+        { className: "post_author" },
+        _react2["default"].createElement("img", { src: this.props.img, alt: "", className: "post_author-img" }),
+        _react2["default"].createElement(
+          "h3",
+          { className: "post_author-name" },
+          _react2["default"].createElement(
+            "a",
+            { href: this.props.link },
+            this.props.name
+          )
+        ),
+        _react2["default"].createElement(
+          "p",
+          { className: "post_author-bio" },
+          this.props.bio
+        )
+      );
+    }
+  }]);
+
+  return PostAuthor;
+})(_react2["default"].Component);
+
+exports["default"] = PostAuthor;
+module.exports = exports["default"];
+
+},{"react":245}],250:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _PostAuthor = require("PostAuthor");
+
+var _PostAuthor2 = _interopRequireDefault(_PostAuthor);
+
+var PostFooter = (function (_React$Component) {
+  function PostFooter() {
+    _classCallCheck(this, PostFooter);
+
+    if (_React$Component != null) {
+      _React$Component.apply(this, arguments);
+    }
+  }
+
+  _inherits(PostFooter, _React$Component);
+
+  _createClass(PostFooter, [{
+    key: "render",
+    value: function render() {
+      return _react2["default"].createElement(
+        "footer",
+        { className: "post_footer" },
+        _react2["default"].createElement(_PostAuthor2["default"], this.props)
+      );
+    }
+  }]);
+
+  return PostFooter;
+})(_react2["default"].Component);
+
+exports["default"] = PostFooter;
+module.exports = exports["default"];
+
+},{"PostAuthor":249,"react":245}],251:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24599,10 +24716,10 @@ var PostHeader = (function (_React$Component) {
     value: function render() {
       return _react2["default"].createElement(
         "header",
-        { className: "post-header" },
+        { className: "post_header" },
         _react2["default"].createElement(
           "h2",
-          { className: "post-title" },
+          { className: "post_header-title" },
           _react2["default"].createElement(
             Link,
             { to: this.getPermalink() },
@@ -24611,7 +24728,7 @@ var PostHeader = (function (_React$Component) {
         ),
         _react2["default"].createElement(
           "small",
-          { className: "post-date" },
+          { className: "post_header-date" },
           this.props.date
         )
       );
@@ -24624,12 +24741,14 @@ var PostHeader = (function (_React$Component) {
 exports["default"] = PostHeader;
 module.exports = exports["default"];
 
-},{"react":245,"react-router":76}],250:[function(require,module,exports){
+},{"react":245,"react-router":76}],252:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
@@ -24666,12 +24785,7 @@ var PostsList = (function (_React$Component) {
     key: "getPosts",
     value: function getPosts() {
       return _posts2["default"].map(function (post) {
-        return _react2["default"].createElement(_Post2["default"], {
-          key: post.slug,
-          title: post.title,
-          slug: post.slug,
-          date: post.date,
-          contents: post.contents });
+        return _react2["default"].createElement(_Post2["default"], _extends({}, post, { key: post.slug }));
       });
     }
   }, {
@@ -24691,7 +24805,7 @@ var PostsList = (function (_React$Component) {
 exports["default"] = PostsList;
 module.exports = exports["default"];
 
-},{"../posts":252,"Post":248,"react":245}],251:[function(require,module,exports){
+},{"../posts":254,"Post":248,"react":245}],253:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24745,11 +24859,7 @@ var SinglePost = (function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      return _react2["default"].createElement(_Post2["default"], {
-        title: this.getPost().title,
-        slug: this.getPost().slug,
-        date: this.getPost().date,
-        contents: this.getPost().contents });
+      return _react2["default"].createElement(_Post2["default"], this.getPost());
     }
   }]);
 
@@ -24763,7 +24873,7 @@ SinglePost.contextTypes = {
 exports["default"] = SinglePost;
 module.exports = exports["default"];
 
-},{"../posts":252,"Post":248,"lodash/collection/find":4,"react":245}],252:[function(require,module,exports){
+},{"../posts":254,"Post":248,"lodash/collection/find":4,"react":245}],254:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -24775,17 +24885,35 @@ exports["default"] = [{
   title: "Отзывчивые изображения. Наконец-то",
   slug: "1-responsive-images-finally",
   contents: "<blockquote>\n  Самая сложная проблема программирования — отзывчивые изображения\n\n  <footer>\n    — <cite>Рудольф Джулиани</cite>\n  </footer>\n</blockquote>\n\n<p>Вопросу отзывчивых изображений больше десяти лет. После бума доткомов в начале двухтысячных неунывающие разработчики присоединились к <nobr>Веб 2.0</nobr>. Изображения снова стали самой важной частью сайтов и веб-приложений.</p>\n<p>Из-за огромного количества девайсов<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>размеров и разрешений экрана мы<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>разработчики<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>остро нуждаемся в решении для загрузки отзывчивых изображений без влияния на скорость и загрузку страницы. К счастью<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>после жарких споров между W3C<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>Kodak и Стивом Балмером у нас наконец-то есть такое решение. Балмер неофициально называет его<span class=\"typograf-oa-sp-lquot\"> </span><span class=\"typograf-oa-lquot\">«</span>Спроси-у-копа».</p>\n<p><span class=\"typograf-oa-n-lquot\">«</span>Если вы спросите кого-нибудь<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>полицейский он или нет. Ему придется ответить. Так же и с изображениями. Спросите у сайта<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>какого размера ему нужны изображения. И он ответит» — так объяснил Балмер новую спецификацию для отзывчивых изображений на пресс-конференции.</p>\n<p>Я реализовала спецификацию за вас. Не благодарите. Когда вы заходите на страницу<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>вы должны ответить<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>какое у вас устройство: обыкновенный компьютер или мобильник. И в зависимости от ответа<span class=\"typograf-oa-sp-lbracket\"> </span><span class=\"typograf-oa-lbracket\">(</span>а вы обязаны ответить честно<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>это закон)  сайт покажет вам правильное изображение.</p>\n<p>Код<span class=\"typograf-oa-sp-lbracket\"> </span><span class=\"typograf-oa-lbracket\">(</span>форкайте на Гитхабе)  использует два популярных <nobr>Веб 2.0</nobr> концепта:<span class=\"typograf-oa-sp-lquot\"> </span><span class=\"typograf-oa-lquot\">«</span>switch» и<span class=\"typograf-oa-sp-lquot\"> </span><span class=\"typograf-oa-lquot\">«</span>jQuery», чтобы убедиться<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>что пользователь говорит правду насчет размера устройства<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>и показать правильное изображение.</p>\n<pre><code class=\"lang-javascript\"><span class=\"hljs-keyword\">var</span> mobileOrDesktop = prompt(<span class=\"hljs-string\">\"Is this a mobile device (y) or desktop (n)? y/n\"</span>);\n <span class=\"hljs-keyword\">var</span> <span class=\"hljs-variable\">$responsiveImage</span> = $(<span class=\"hljs-string\">'img#responsive'</span>);\n <span class=\"hljs-keyword\">switch</span> ( mobileOrDesktop ) {\n  <span class=\"hljs-keyword\">case</span> <span class=\"hljs-string\">'y'</span>:\n <span class=\"hljs-variable\">$responsiveImage</span>.attr({\n  <span class=\"hljs-string\">'src'</span> : <span class=\"hljs-string\">'mobile.jpg'</span>,\n  <span class=\"hljs-string\">'alt'</span> : <span class=\"hljs-string\">'mobile image'</span>\n });\n <span class=\"hljs-keyword\">break</span>;\n <span class=\"hljs-keyword\">case</span> <span class=\"hljs-string\">'n'</span>:\n <span class=\"hljs-variable\">$responsiveImage</span>.attr({\n  <span class=\"hljs-string\">'src'</span> : <span class=\"hljs-string\">'desktop.jpg'</span>,\n  <span class=\"hljs-string\">'alt'</span> : <span class=\"hljs-string\">'desktop image'</span>\n });\n <span class=\"hljs-keyword\">break</span>;\n <span class=\"hljs-keyword\">default</span>:\n <span class=\"hljs-variable\">$responsiveImage</span>.attr({\n  <span class=\"hljs-string\">'src'</span> : <span class=\"hljs-string\">'trojanhorse.jpg'</span>,\n  <span class=\"hljs-string\">'alt'</span> : <span class=\"hljs-string\">'hack the planet'</span>\n });\n <span class=\"hljs-variable\">$responsiveImage</span>.after(<span class=\"hljs-string\">'&lt;h1&gt;TOLD YA TO CHOOSE Y OR NO BUT YOU DIDN\\'T SO&lt;br /&gt;~ * V I R U S * ~'</span>);\n <span class=\"hljs-keyword\">break</span>;\n }\n</code></pre>\n<p>Все мы очень долго ждали решения для отзывчивых изображений. Здорово<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>что решение<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>к которому пришли разработчики и производители браузеров<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>такое простое. Простое как для разработчика<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>так и для пользователя.</p>",
-  date: "30 мая 2015"
+  date: "30 мая 2015",
+  author: {
+    name: "Джен Шиффер",
+    img: "/images/jenn.jpeg",
+    link: "https://medium.com/cool-code-pal/a-client-side-responsive-image-solution-finally-d9a47f94eea7",
+    bio: "Недавно была включена в список Форбс «Топ 9 людей в ИТ, которым однажды было 9»"
+  }
 }, {
   title: "Двухфакторный препроцессинг CSS",
   slug: "1-two-factor-css",
   contents: "<p>CSS — язык программирования для форматирования HTML элементов без помощи JavaScript или Node.js. Выпущенный 17 лет назад<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>он буквально изменил внешний вид сайтов и веб-приложений. Как и вы в подростковом возрасте<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>CSS хотел быть самым крутым языком программирования на районе. Так появились препроцессоры.</p>\n<p>Sass<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>Less<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>ZendPHP<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>Stylus оптимизировали и улучшили процесс верстки с CSS. Но с ними есть и проблемы:</p>\n<ul>\n<li>компиляция — бессмысленная трата времени;</li>\n<li>надо переключаться между окнами с исходным и скомпилированным кодом. Бесполезная трата времени и экрана;</li>\n<li>они не предотвращают ошибки. Все мы люди<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>и все мы совершаем ошибки. Но узнаем о них<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>когда они уже в браузере.</li>\n</ul>\n<p>Я предлагаю самый лучший тип препроцессоров — двухфакторный браузерный CSS препроцессинг.</p>\n<div class=\"outstanding\">\n  <p>\n    Двухфакторный браузерный CSS препроцессинг.<br />Да потому что мы можем.\n  </p>\n</div>\n\n<p>Двухфакторный браузерный CSS препроцессинг<span class=\"typograf-oa-sp-lbracket\"> </span><span class=\"typograf-oa-lbracket\">(</span>ДФБЦП)  состоит из двух компонентов: двухфакторинг и браузер.</p>\n<p>Первый фактор — CSS. Например,<span class=\"typograf-oa-sp-lquot\"> </span><span class=\"typograf-oa-lquot\">«</span>мой_сайт.css»:</p>\n<pre><code class=\"lang-css\"><span class=\"hljs-tag\">body</span> <span class=\"hljs-rules\">{ <span class=\"hljs-rule\"><span class=\"hljs-attribute\">font-weight</span>:<span class=\"hljs-value\"> bold</span></span>; <span class=\"hljs-rule\"><span class=\"hljs-attribute\">font-size</span>:<span class=\"hljs-value\"> <span class=\"hljs-number\">20pt</span></span></span>; }</span>\n<span class=\"hljs-tag\">img</span> <span class=\"hljs-rules\">{ <span class=\"hljs-rule\"><span class=\"hljs-attribute\">border</span>:<span class=\"hljs-value\"> <span class=\"hljs-number\">1px</span> solid lime</span></span>; }</span>\n</code></pre>\n<p>Второй фактор добавляем прямо в HTML<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>взгляните на<span class=\"typograf-oa-sp-lquot\"> </span><span class=\"typograf-oa-lquot\">«</span>главная.html»:</p>\n<pre><code class=\"lang-html\"><span class=\"hljs-tag\">&lt;<span class=\"hljs-title\">html</span>&gt;</span>\n<span class=\"hljs-tag\">&lt;<span class=\"hljs-title\">head</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-title\">link</span> <span class=\"hljs-attribute\">rel</span>=<span class=\"hljs-value\">\"stylescripts\"</span> <span class=\"hljs-attribute\">href</span>=<span class=\"hljs-value\">\"мой_сайт.css\"</span> <span class=\"hljs-attribute\">type</span>=<span class=\"hljs-value\">\"text/css\"</span> /&gt;</span>\n<span class=\"hljs-tag\">&lt;/<span class=\"hljs-title\">head</span>&gt;</span>\n<span class=\"hljs-tag\">&lt;<span class=\"hljs-title\">body</span> <span class=\"hljs-attribute\">style</span>=<span class=\"hljs-value\">\"font-weight:bold; font-size: 20pt; \"</span>&gt;</span>\n    <span class=\"hljs-tag\">&lt;<span class=\"hljs-title\">img</span> <span class=\"hljs-attribute\">src</span>=<span class=\"hljs-value\">\"myimage.png\"</span> <span class=\"hljs-attribute\">style</span>=<span class=\"hljs-value\">\"border: 1px solid magenta;\"</span> <span class=\"hljs-attribute\">alt</span>=<span class=\"hljs-value\">\"\"</span> /&gt;</span>\n<span class=\"hljs-tag\">&lt;/<span class=\"hljs-title\">body</span>&gt;</span>\n<span class=\"hljs-tag\">&lt;/<span class=\"hljs-title\">html</span>&gt;</span>\n</code></pre>\n<p>Обратите внимание: второй фактор<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>встроенные стили<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>делает границу <em>пурпурной</em>. Значение <code>lime</code> в исходном CSS было человеческой ошибкой<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>которую исправил второй фактор.</p>\n<p>Вынося CSS из HTML и встраивая его в HTML<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>мы получаем резервную проверку стилей. Кроме того<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>мы не тратили время на компиляцию CSS и установку препроцессоров<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>потому что все происходило в браузере!</p>\n<p>В последнее время браузеры стали более умнее. Как и веб-разработчики. Самое время показать<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>какие мы умные<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>развивая препроцессоры<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>которыми пользовались наши предки.</p>\n<p>Двухфакторный браузерный CSS препроцессинг — это только начало.</p>",
-  date: "30 мая 2015"
+  date: "30 мая 2015",
+  author: {
+    name: "Джен Шиффер",
+    img: "/images/jenn.jpeg",
+    link: "https://medium.com/cool-code-pal/an-introduction-to-two-factor-in-browser-css-preprocessing-e32792e56b53",
+    bio: "Автор бестселлера «Как CSS убил RSS»"
+  }
 }, {
   title: "Рубрика. Диванный эксперт",
   slug: "3-chairborn",
   contents: "<p>Немного подумав о роли HTML5<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>я пришёл к выводу<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>что она вряд ли задержит приход XML и поможет чем-то МС<span class=\"typograf-oa-sp-lbracket\"> </span><span class=\"typograf-oa-lbracket\">(</span>Майкрософт). Поскольку я сам политикан-менеджер-маркетоид<span class=\"typograf-oa-sp-lbracket\"> </span><span class=\"typograf-oa-lbracket\">(</span>и по образованию и по работе; вэб-девелопером я стал при весьма своеобразных обстоятельствах<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>очень уж любил это дело со школы<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>да вот склалось заняться только после 25 лет), то моим выводам можно доверять.</p>\n<p>Представив расстановку сил<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>я понял<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>что<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>скорее всего<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>в результате консультаций Вэб-консорциума с МС последние выдвинули условие своей любимой обратной совместимости. Наверняка они пригрозили<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>что если не будет стандарта<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>который эту совместимость обеспечит<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>они создадут свой. Фактически<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>бескомпромиссный переход к XHTML 2.0 спровоцировал бы МС к возвращению на тропу войны стандартов. Вэб-консорциуму это не надо. Единственным решением было всё же как-то обеспечить эту пресловутую обратную совместимость.</p>\n<p>Такова реальность. Оценим<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>к чему это приведёт. Лично я склонен считать<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>что это был один из самых грубых стратегических промахов МС. Обосновываю. Давно известно: не можешь противостоять течению — возглавь его. А МС по глупости своей пытается противостоять неизбежному. Ну дай им Бог<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>пускай потратят финансовые ресурсы на войну с ветряными мельницами. Вообще<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>они совсем не учатся на своих ошибках. Сколько человеко-тысячелетий они вложили в разработку ИИСа и АСПа? И где всё это теперь? Опять не доходит… Взялись за.Нет. Ну-ну… Они всегда говорят: &quot; Наш потребитель — это пользователь. А на девелоперов нам плевать<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>не они нам деньги платят&quot; . Ой-ёй<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>как же они тут прокололись! И так ничего и не поняли. Теперь плюют на вэб-девелоперов<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>скорее уже вынужденно. И чего они достигнут? Оттянут неизбежное<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>потратят время и ресурсы и придут к кризисному моменту<span class=\"typograf-oa-sp-lbracket\"> </span><span class=\"typograf-oa-lbracket\">(</span>а он будет обязательно! )  в ещё более ослабленном состоянии. Это вместо того<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>чтобы прямо сегодня начать заниматься делом.</p>\n<p>Ну и дай им бог! Может ИЕ наконец накернится… Когда их Колобок уйдёт с лидирующих позиций<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>проблемы с поддержкой новых стандартов решатся автоматически. Да и вообще многое станет проще. Так что уступка Вэб-консорциума<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>скорее всего<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>окажется для них медвежьей услугой<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>хотя Консорциум вряд ли ставил такую цель. В общем<span class=\"typograf-oa-comma\">,</span><span class=\"typograf-oa-comma-sp\"> </span>жизнь покажет…</p>",
-  date: "30 мая 2015"
+  date: "30 мая 2015",
+  author: {
+    name: "Alex",
+    img: "/images/chairborn.jpg",
+    link: "http://pytalk.ru/forum/web/704/",
+    bio: "Политикан, менеджер, маркетоид. Характер нордический"
+  }
 }];
 module.exports = exports["default"];
 

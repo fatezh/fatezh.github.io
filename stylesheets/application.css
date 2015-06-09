@@ -323,26 +323,42 @@ body {
   text-align: center;
   font-size: 1.25rem;
 }
-.post blockquote {
+
+.post-contents {
+  box-sizing: border-box;
+  max-width: 33rem;
+  padding: 1rem;
+}
+
+.post-contents blockquote {
   margin: 0 0 1.5rem;
   padding: 0 0 0 1rem;
   border-left: 5px solid #eee;
 }
-.post blockquote footer {
+
+.post-contents blockquote footer {
   text-align: right;
 }
-.post pre {
+
+.post-contents pre {
   overflow: auto;
   margin-right: -7rem;
 }
-.post p {
+
+.post-contents p {
   margin: 0 0 1.5rem;
 }
-.post ul {
+
+.post-contents p:last-child {
+  margin: 0;
+}
+
+.post-contents ul {
   margin: 0 0 1.5rem;
   list-style: none;
 }
-.post ul li:before {
+
+.post-contents ul li:before {
   position: absolute;
   display: inline-block;
   width: 1.5em;
@@ -352,16 +368,46 @@ body {
 }
 
 @media (max-width: 50rem) {
-  .post pre {
+  .post-contents pre {
     margin-right: 0;
   }
 }
 
-.post-header {
+.post_author {
+  overflow: hidden;
+}
+
+.post_author-img {
+  float: left;
+
+  width: 60px;
+  height: 60px;
+  margin: .2rem 1rem 0 0;
+}
+
+.post_author-name {
+  font-size: 90%;
+}
+
+.post_author-bio {
+  overflow: hidden;
+
+  max-width: 23rem;
+
+  font-size: 70%;
+}
+
+.post_footer {
+  border-bottom: 2px solid #000;
+  box-sizing: border-box;
+  max-width: 33rem;
+  padding: 1rem;
+}
+.post_header {
   padding: 0 1rem;
 }
 
-.post-title {
+.post_header-title {
   padding: 0 0 .25rem;
 
   font-size: 2.4rem;
@@ -369,21 +415,15 @@ body {
   line-height: 1.2;
 }
 
-.post-title a {
+.post_header-title a {
   text-decoration: none;
   color: inherit;
 }
 
-.post-date {
+.post_header-date {
   letter-spacing: 2px;
   text-transform: uppercase;
 
   font-size: .7rem;
   line-height: 1.14;
-}
-
-.post-contents {
-  box-sizing: border-box;
-  max-width: 33rem;
-  padding: 1rem;
 }
