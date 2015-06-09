@@ -349,7 +349,7 @@ body {
   margin: 0 0 1.5rem;
 }
 
-.post-contents p:last-child {
+.post-contents > p:last-child {
   margin: 0;
 }
 
