@@ -342,7 +342,7 @@ body {
 
 .post-contents pre {
   overflow: auto;
-  margin-right: -7rem;
+  margin: 0 -7rem 1.5rem 0;
 }
 
 .post-contents p {
