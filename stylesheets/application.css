@@ -11,8 +11,8 @@ html {
 }
 
 @media (max-width: 768px) {
-  html {
-    font-size: 18px;
+  body {
+    padding: 0 .5rem;
   }
 }
 
@@ -351,7 +351,7 @@ body {
   text-align: left;
 }
 
-@media (max-width: 40rem) {
+@media (max-width: 50rem) {
   .post pre {
     margin-right: 0;
   }
