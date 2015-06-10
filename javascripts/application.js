@@ -26435,9 +26435,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) subClass.__proto__ = superClass; }
 
-var _react = require("react");
+var _reactAddons = require("react/addons");
 
-var _react2 = _interopRequireDefault(_react);
+var _reactAddons2 = _interopRequireDefault(_reactAddons);
 
 var _reactRouter = require("react-router");
 
@@ -26448,6 +26448,7 @@ var _ApplicationHeader = require("ApplicationHeader");
 var _ApplicationHeader2 = _interopRequireDefault(_ApplicationHeader);
 
 var RouteHandler = _reactRouter2["default"].RouteHandler;
+var CSSTransitionGroup = _reactAddons2["default"].addons.CSSTransitionGroup;
 
 var ApplicationContainer = (function (_React$Component) {
   function ApplicationContainer() {
@@ -26463,22 +26464,32 @@ var ApplicationContainer = (function (_React$Component) {
   _createClass(ApplicationContainer, [{
     key: "render",
     value: function render() {
-      return _react2["default"].createElement(
+      var name = this.context.router.getCurrentPath();
+
+      return _reactAddons2["default"].createElement(
         "main",
         { className: "application_container" },
-        _react2["default"].createElement(_ApplicationHeader2["default"], null),
-        _react2["default"].createElement(RouteHandler, null)
+        _reactAddons2["default"].createElement(_ApplicationHeader2["default"], null),
+        _reactAddons2["default"].createElement(
+          CSSTransitionGroup,
+          { component: "div", transitionName: "application_container-body", transitionLeave: false },
+          _reactAddons2["default"].createElement(RouteHandler, { key: name })
+        )
       );
     }
   }]);
 
   return ApplicationContainer;
-})(_react2["default"].Component);
+})(_reactAddons2["default"].Component);
+
+ApplicationContainer.contextTypes = {
+  router: _reactAddons2["default"].PropTypes.func.isRequired
+};
 
 exports["default"] = ApplicationContainer;
 module.exports = exports["default"];
 
-},{"ApplicationHeader":265,"react":262,"react-router":75}],265:[function(require,module,exports){
+},{"ApplicationHeader":265,"react-router":75,"react/addons":90}],265:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

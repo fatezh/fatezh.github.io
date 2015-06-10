@@ -292,6 +292,24 @@ body {
   padding: 2rem 0;
 }
 
+.application_container-body-enter::before {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 1%;
+
+  content: "";
+  -webkit-transition: width .3s;
+          transition: width .3s;
+
+  border-bottom: 5px solid #030303;
+}
+
+.application_container-body-enter.application_container-body-enter-active::before {
+  width: 100%;
+}
+
 .application_header {
   box-sizing: border-box;
   max-width: 33rem;
