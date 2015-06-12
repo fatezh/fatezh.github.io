@@ -349,6 +349,15 @@ body {
   padding: 1rem;
 }
 
+.post-contents h3 {
+  margin: 1.5rem 0 .25rem;
+  font-size: 1.25rem;
+}
+
+.post-contents > h3:first-child {
+  margin-top: 0;
+}
+
 .post-contents blockquote {
   margin: 0 0 1.5rem;
   padding: 0 0 0 1rem;
@@ -365,7 +374,9 @@ body {
 }
 
 .post-contents img {
+  display: block;
   max-width: 100%;
+  margin: 0 auto;
 }
 
 .post-contents p {
