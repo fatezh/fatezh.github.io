@@ -33,12 +33,13 @@ body {
 
  pre {
   overflow: auto;
- }
+  white-space: pre-wrap;
+}
 
  code {
   font-size: 75%;
   font-family: Monaco, monospace;
- }
+}
 
 .hljs {
   display: block;
