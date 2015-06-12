@@ -364,6 +364,10 @@ body {
   margin: 0 -7rem 1.5rem 0;
 }
 
+.post-contents img {
+  max-width: 100%;
+}
+
 .post-contents p {
   margin: 0 0 1.5rem;
 }
