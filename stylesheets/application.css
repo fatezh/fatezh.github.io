@@ -334,9 +334,11 @@ body {
   text-decoration: none;
   color: inherit;
 }
+
 .post {
   padding: 4rem 0 0;
 }
+
 .post .outstanding {
   padding: 1rem 0;
   text-align: center;
@@ -432,10 +434,11 @@ body {
 }
 
 .post_footer {
-  border-bottom: 2px solid #000;
   box-sizing: border-box;
   max-width: 33rem;
   padding: 1rem;
+
+  border-bottom: 2px solid #000;
 }
 .post_header {
   padding: 0 1rem;
