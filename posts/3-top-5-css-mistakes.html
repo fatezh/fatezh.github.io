@@ -1,0 +1,47 @@
+<!DOCTYPE html><html><head><title>Верстающий Фатеж — Наверстай упущенное</title><meta name="viewport" content="width=device-width, initial-scale=1.0, ya-title=fade, ya-dock=fade"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-title" content="Фатеж"/><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/><meta name="theme-color" content="#ffffff"/><link rel="stylesheet" href="/stylesheets/application.css"/><link rel="apple-touch-icon" href="/images/touch-icon.png"/></head><body><script>document.body.className += " in-production"
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-1522660-23', 'auto');
+ga('send', 'pageview');
+</script><div id="application-root"><table class="application_container" data-reactid=".tybswgcjy8" data-react-checksum="1171117009"><tbody data-reactid=".tybswgcjy8.0"><tr data-reactid=".tybswgcjy8.0.0"><td class="application_header" data-reactid=".tybswgcjy8.0.0.0"><h1 class="application_header-title" data-reactid=".tybswgcjy8.0.0.0.0"><a class="" href="/" data-reactid=".tybswgcjy8.0.0.0.0.0">Верстающий Фатеж</a></h1></td></tr><tr data-reactid=".tybswgcjy8.0.1"><td data-reactid=".tybswgcjy8.0.1.0"><article class="post" data-reactid=".tybswgcjy8.0.1.0.$=1$/posts/3-top-5-css-mistakes=01html"><header class="post_header" data-reactid=".tybswgcjy8.0.1.0.$=1$/posts/3-top-5-css-mistakes=01html.0"><h2 class="post_header-title" data-reactid=".tybswgcjy8.0.1.0.$=1$/posts/3-top-5-css-mistakes=01html.0.0"><a class=" active" href="/posts/3-top-5-css-mistakes.html" data-reactid=".tybswgcjy8.0.1.0.$=1$/posts/3-top-5-css-mistakes=01html.0.0.0">Топ 5 ошибок в CSS</a></h2><small class="post_header-date" data-reactid=".tybswgcjy8.0.1.0.$=1$/posts/3-top-5-css-mistakes=01html.0.1">20 июня 2015</small></header><section class="post-contents" data-reactid=".tybswgcjy8.0.1.0.$=1$/posts/3-top-5-css-mistakes=01html.1"><p>Хоть я и с Восточного побережья<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>я — бэкенд-разработчик и эксперт по California Style Sheets. Работал над фронтендом облачных приложений 19 минут<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>но уже научился многому. Не делаю ошибок<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>которые допускают самые лучшие и опытные разработчики. Вот топ 5 ошибок в C.S.S<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>которых следует избегать<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>чтобы сберечь время.</p>
+<h3 id="-">Недостаточно специфичные селекторы</h3>
+<p>Классы — для одинаковых элементов. Одинаковые элементы — это большая проблема с избыточностью данных. Используйте идентификаторы для всего<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>потому что все на странице должно быть <em>уникальным</em>.</p>
+<pre><code class="lang-css"><span class="hljs-comment">/* Плохо */</span>
+<span class="hljs-class">.pull-quote</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">font-style</span>:<span class="hljs-value"> italic</span></span>;
+}</span>
+
+<span class="hljs-comment">/* Хорошо */</span>
+<span class="hljs-id">#first-pull-quote-about-pizza-with-sausage</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">font-style</span>:<span class="hljs-value"> italic</span></span>;
+}</span>
+</code></pre>
+<h3 id="-">Виртуальные единицы измерения</h3>
+<p><code>px</code>, <code>pt</code>, <code>em</code> — виртуальные единицы измерения. Ими не измерить объекты из реального мира. Раз программисты пишут в объектно-ориентированном стиле<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>используйте единицы измерения<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>соответствующие объектам. Если картинка в длину ровно три хот-дога<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>то и в C.S.S используйте эту единицу измерения. Семантика<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>старичок!</p>
+<pre><code class="lang-css"><span class="hljs-comment">/* Плохо */</span>
+<span class="hljs-tag">img</span><span class="hljs-id">#first-image-of-three-hot-dogs-laid-end-to-end</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> <span class="hljs-number">50px</span></span></span>;
+}</span>
+
+<span class="hljs-comment">/* Хорошо */</span>
+<span class="hljs-tag">img</span><span class="hljs-id">#first-image-of-three-hot-dogs-laid-end-to-end</span> <span class="hljs-rules">{
+    <span class="hljs-rule"><span class="hljs-attribute">width</span>:<span class="hljs-value"> .<span class="hljs-number">5</span>threehotdogslaidendtoend</span></span>;
+}</span>
+</code></pre>
+<h3 id="-">Лаконичные имена у идентификаторов</h3>
+<p>Мы создаем более семантичный Интернет<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>поэтому код должен рассказывать больше о контенте. Используйте дополнительные идентификаторы<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>чтобы рассказать больше о контенте. Даже если не пользуетесь ими в C.S.S или JarvisScript<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>используйте их ради доступности сайта:</p>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- Плохо --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"hotdogs.bmp"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"three-hot-dogs-laid-end-to-end"</span> /&gt;</span>
+</code></pre>
+<p>Почему именно три хот-дога? Что произошло? Пользователю нужно больше информации. Добавьте идентификаторы<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>чтобы ответить на вопросы и рассказать всю историю. Разделяйте их пробелами<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>как учил нас сэр Тим Бернерс-Ли:</p>
+<pre><code class="lang-html"><span class="hljs-comment">&lt;!-- Хорошо --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">img</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"hotdogs.bmp"</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">"three-hot-dogs-laid-end-to-end because-they-fell-that-way after-my-cat-tripped-me"</span> /&gt;</span>
+</code></pre>
+<h3 id="-css-">Весь CSS в одном месте</h3>
+<p>Нерадивые программисты советуют держать весь C.S.S в одном файле. Если этот файл будет недоступен<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>то сайт останется без дизайна. Чтобы избежать этого<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>раскидайте C.S.S по разным файлам и добавьте их в <code>&lt;head&gt;</code> и в <code>&lt;style&gt;</code>.</p>
+<h3 id="-">Правила без приоритетов</h3>
+<p>Часть правил C.S.S особенно важна. Используйте <code>!important</code>, чтобы указать браузеру<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>какое правило он должен использовать в случае сомнений.</p>
+<p>Кроме того<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>если вы не используете <code>!important</code>, как ваш начальник узнает<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>что вы пишете код важный для проекта?</p></section><footer class="post_footer" data-reactid=".tybswgcjy8.0.1.0.$=1$/posts/3-top-5-css-mistakes=01html.2"><section class="post_author" data-reactid=".tybswgcjy8.0.1.0.$=1$/posts/3-top-5-css-mistakes=01html.2.0"><img src="/images/jenn.jpeg" alt="" class="post_author-img" data-reactid=".tybswgcjy8.0.1.0.$=1$/posts/3-top-5-css-mistakes=01html.2.0.0"><h3 class="post_author-name" data-reactid=".tybswgcjy8.0.1.0.$=1$/posts/3-top-5-css-mistakes=01html.2.0.1"><a href="https://medium.com/cool-code-pal/top-5-c-s-s-mistakes-to-avoid-before-you-die-ee3221e30f6c" data-reactid=".tybswgcjy8.0.1.0.$=1$/posts/3-top-5-css-mistakes=01html.2.0.1.0">Джен Шиффер</a></h3><p class="post_author-bio" data-reactid=".tybswgcjy8.0.1.0.$=1$/posts/3-top-5-css-mistakes=01html.2.0.2">Фотограф-любитель хот-догов</p></section></footer></article></td></tr></tbody></table></div><script src="/javascripts/application.js"></script></body></html>

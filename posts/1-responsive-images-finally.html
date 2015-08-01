@@ -1,0 +1,47 @@
+<!DOCTYPE html><html><head><title>Верстающий Фатеж — Наверстай упущенное</title><meta name="viewport" content="width=device-width, initial-scale=1.0, ya-title=fade, ya-dock=fade"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-title" content="Фатеж"/><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/><meta name="theme-color" content="#ffffff"/><link rel="stylesheet" href="/stylesheets/application.css"/><link rel="apple-touch-icon" href="/images/touch-icon.png"/></head><body><script>document.body.className += " in-production"
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-1522660-23', 'auto');
+ga('send', 'pageview');
+</script><div id="application-root"><table class="application_container" data-reactid=".dgwyj4qy9s" data-react-checksum="419794363"><tbody data-reactid=".dgwyj4qy9s.0"><tr data-reactid=".dgwyj4qy9s.0.0"><td class="application_header" data-reactid=".dgwyj4qy9s.0.0.0"><h1 class="application_header-title" data-reactid=".dgwyj4qy9s.0.0.0.0"><a class="" href="/" data-reactid=".dgwyj4qy9s.0.0.0.0.0">Верстающий Фатеж</a></h1></td></tr><tr data-reactid=".dgwyj4qy9s.0.1"><td data-reactid=".dgwyj4qy9s.0.1.0"><article class="post" data-reactid=".dgwyj4qy9s.0.1.0.$=1$/posts/1-responsive-images-finally=01html"><header class="post_header" data-reactid=".dgwyj4qy9s.0.1.0.$=1$/posts/1-responsive-images-finally=01html.0"><h2 class="post_header-title" data-reactid=".dgwyj4qy9s.0.1.0.$=1$/posts/1-responsive-images-finally=01html.0.0"><a class=" active" href="/posts/1-responsive-images-finally.html" data-reactid=".dgwyj4qy9s.0.1.0.$=1$/posts/1-responsive-images-finally=01html.0.0.0">Отзывчивые изображения. Наконец-то</a></h2><small class="post_header-date" data-reactid=".dgwyj4qy9s.0.1.0.$=1$/posts/1-responsive-images-finally=01html.0.1">30 мая 2015</small></header><section class="post-contents" data-reactid=".dgwyj4qy9s.0.1.0.$=1$/posts/1-responsive-images-finally=01html.1"><blockquote>
+  Самая сложная проблема программирования — отзывчивые изображения
+
+  <footer>
+    — <cite>Рудольф Джулиани</cite>
+  </footer>
+</blockquote>
+
+<p>Вопросу отзывчивых изображений больше десяти лет. После бума доткомов в начале двухтысячных неунывающие разработчики присоединились к <nobr>Веб 2.0</nobr>. Изображения снова стали самой важной частью сайтов и веб-приложений.</p>
+<p>Из-за огромного количества девайсов<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>размеров и разрешений экрана мы<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>разработчики<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>остро нуждаемся в решении для загрузки отзывчивых изображений без влияния на скорость и загрузку страницы. К счастью<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>после жарких споров между W3C<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>Kodak и Стивом Балмером у нас наконец-то есть такое решение. Балмер неофициально называет его<span class="typograf-oa-sp-lquot"> </span><span class="typograf-oa-lquot">«</span>Спроси-у-копа».</p>
+<p><span class="typograf-oa-n-lquot">«</span>Если вы спросите кого-нибудь<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>полицейский он или нет. Ему придется ответить. Так же и с изображениями. Спросите у сайта<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>какого размера ему нужны изображения. И он ответит» — так объяснил Балмер новую спецификацию для отзывчивых изображений на пресс-конференции.</p>
+<p>Я реализовала спецификацию за вас. Не благодарите. Когда вы заходите на страницу<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>вы должны ответить<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>какое у вас устройство: обыкновенный компьютер или мобильник. И в зависимости от ответа<span class="typograf-oa-sp-lbracket"> </span><span class="typograf-oa-lbracket">(</span>а вы обязаны ответить честно<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>это закон)  сайт покажет вам правильное изображение.</p>
+<p>Код<span class="typograf-oa-sp-lbracket"> </span><span class="typograf-oa-lbracket">(</span><a href="https://github.com/cssperverts/Ask-a-Cop-Responsive-Images-Solution">форкайте на Гитхабе</a>)  использует два популярных <nobr>Веб 2.0</nobr> концепта:<span class="typograf-oa-sp-lquot"> </span><span class="typograf-oa-lquot">«</span>switch» и<span class="typograf-oa-sp-lquot"> </span><span class="typograf-oa-lquot">«</span>jQuery», чтобы убедиться<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>что пользователь говорит правду насчет размера устройства<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>и показать правильное изображение.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">var</span> mobileOrDesktop = prompt(<span class="hljs-string">"Is this a mobile device (y) or desktop (n)? y/n"</span>);
+<span class="hljs-keyword">var</span> <span class="hljs-variable">$responsiveImage</span> = $(<span class="hljs-string">'img#responsive'</span>);
+<span class="hljs-keyword">switch</span> ( mobileOrDesktop ) {
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'y'</span>:
+    <span class="hljs-variable">$responsiveImage</span>.attr({
+      <span class="hljs-string">'src'</span> : <span class="hljs-string">'mobile.jpg'</span>,
+      <span class="hljs-string">'alt'</span> : <span class="hljs-string">'mobile image'</span>
+    });
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">case</span> <span class="hljs-string">'n'</span>:
+    <span class="hljs-variable">$responsiveImage</span>.attr({
+      <span class="hljs-string">'src'</span> : <span class="hljs-string">'desktop.jpg'</span>,
+      <span class="hljs-string">'alt'</span> : <span class="hljs-string">'desktop image'</span>
+    });
+    <span class="hljs-keyword">break</span>;
+  <span class="hljs-keyword">default</span>:
+    <span class="hljs-variable">$responsiveImage</span>.attr({
+      <span class="hljs-string">'src'</span> : <span class="hljs-string">'trojanhorse.jpg'</span>,
+      <span class="hljs-string">'alt'</span> : <span class="hljs-string">'hack the planet'</span>
+    });
+    <span class="hljs-variable">$responsiveImage</span>.after(<span class="hljs-string">'&lt;h1&gt;TOLD YA TO CHOOSE Y OR NO BUT YOU DIDN\'T SO&lt;br /&gt;~ * V I R U S * ~'</span>);
+    <span class="hljs-keyword">break</span>;
+}
+</code></pre>
+<p><img src="/images/responsive-demo.jpeg" alt="" /></p>
+<p>Все мы очень долго ждали решения для отзывчивых изображений. Здорово<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>что решение<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>к которому пришли разработчики и производители браузеров<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>такое простое. Простое как для разработчика<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>так и для пользователя.</p></section><footer class="post_footer" data-reactid=".dgwyj4qy9s.0.1.0.$=1$/posts/1-responsive-images-finally=01html.2"><section class="post_author" data-reactid=".dgwyj4qy9s.0.1.0.$=1$/posts/1-responsive-images-finally=01html.2.0"><img src="/images/jenn.jpeg" alt="" class="post_author-img" data-reactid=".dgwyj4qy9s.0.1.0.$=1$/posts/1-responsive-images-finally=01html.2.0.0"><h3 class="post_author-name" data-reactid=".dgwyj4qy9s.0.1.0.$=1$/posts/1-responsive-images-finally=01html.2.0.1"><a href="https://medium.com/cool-code-pal/a-client-side-responsive-image-solution-finally-d9a47f94eea7" data-reactid=".dgwyj4qy9s.0.1.0.$=1$/posts/1-responsive-images-finally=01html.2.0.1.0">Джен Шиффер</a></h3><p class="post_author-bio" data-reactid=".dgwyj4qy9s.0.1.0.$=1$/posts/1-responsive-images-finally=01html.2.0.2">Недавно была включена в список Форбс «Топ 9 людей в ИТ, которым однажды было 9»</p></section></footer></article></td></tr></tbody></table></div><script src="/javascripts/application.js"></script></body></html>
