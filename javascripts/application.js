@@ -28712,8 +28712,6 @@ var _componentsApplicationRouter2 = _interopRequireDefault(_componentsApplicatio
 var routerHistory = function routerHistory() {
   if (document.body.className.indexOf("in-production") >= 0) {
     return _reactRouter2["default"].HistoryLocation;
-  } else {
-    return null;
   }
 };
 
