@@ -28708,15 +28708,15 @@ var _reactRouter = require("react-router");
 
 var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
-var _ApplicationRouter = require("ApplicationRouter");
+var _componentsApplicationRouter = require("./components/ApplicationRouter");
 
-var _ApplicationRouter2 = _interopRequireDefault(_ApplicationRouter);
+var _componentsApplicationRouter2 = _interopRequireDefault(_componentsApplicationRouter);
 
-_reactRouter2["default"].run(_ApplicationRouter2["default"], function (Handler) {
+_reactRouter2["default"].run(_componentsApplicationRouter2["default"], _reactRouter2["default"].HistoryLocation, function (Handler) {
   _react2["default"].render(_react2["default"].createElement(Handler, null), document.getElementById("application-root"));
 });
 
-},{"ApplicationRouter":384,"react":380,"react-router":193}],382:[function(require,module,exports){
+},{"./components/ApplicationRouter":384,"react":380,"react-router":193}],382:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28741,7 +28741,7 @@ var _reactRouter = require("react-router");
 
 var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
-var _ApplicationHeader = require("ApplicationHeader");
+var _ApplicationHeader = require("./ApplicationHeader");
 
 var _ApplicationHeader2 = _interopRequireDefault(_ApplicationHeader);
 
@@ -28802,7 +28802,7 @@ var _default = (function (_React$Component) {
 exports["default"] = _default;
 module.exports = exports["default"];
 
-},{"ApplicationHeader":383,"react-router":193,"react/addons":208}],383:[function(require,module,exports){
+},{"./ApplicationHeader":383,"react-router":193,"react/addons":208}],383:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28880,15 +28880,15 @@ var _reactRouter = require("react-router");
 
 var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
-var _ApplicationContainer = require("ApplicationContainer");
+var _ApplicationContainer = require("./ApplicationContainer");
 
 var _ApplicationContainer2 = _interopRequireDefault(_ApplicationContainer);
 
-var _PostsList = require("PostsList");
+var _PostsList = require("./PostsList");
 
 var _PostsList2 = _interopRequireDefault(_PostsList);
 
-var _SinglePost = require("SinglePost");
+var _SinglePost = require("./SinglePost");
 
 var _SinglePost2 = _interopRequireDefault(_SinglePost);
 
@@ -28897,12 +28897,12 @@ var DefaultRoute = _reactRouter2["default"].DefaultRoute;
 exports["default"] = _react2["default"].createElement(
   Route,
   { name: "app", path: "/", handler: _ApplicationContainer2["default"] },
-  _react2["default"].createElement(Route, { name: "single-post", path: "/posts/:slug", handler: _SinglePost2["default"] }),
+  _react2["default"].createElement(Route, { name: "single-post", path: "/posts/:slug.html", handler: _SinglePost2["default"] }),
   _react2["default"].createElement(DefaultRoute, { handler: _PostsList2["default"] })
 );
 module.exports = exports["default"];
 
-},{"ApplicationContainer":382,"PostsList":389,"SinglePost":390,"react":380,"react-router":193}],385:[function(require,module,exports){
+},{"./ApplicationContainer":382,"./PostsList":389,"./SinglePost":390,"react":380,"react-router":193}],385:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -28923,11 +28923,11 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _PostHeader = require("PostHeader");
+var _PostHeader = require("./PostHeader");
 
 var _PostHeader2 = _interopRequireDefault(_PostHeader);
 
-var _PostFooter = require("PostFooter");
+var _PostFooter = require("./PostFooter");
 
 var _PostFooter2 = _interopRequireDefault(_PostFooter);
 
@@ -28964,7 +28964,7 @@ var _default = (function (_React$Component) {
 exports["default"] = _default;
 module.exports = exports["default"];
 
-},{"PostFooter":387,"PostHeader":388,"react":380}],386:[function(require,module,exports){
+},{"./PostFooter":387,"./PostHeader":388,"react":380}],386:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29046,7 +29046,7 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _PostAuthor = require("PostAuthor");
+var _PostAuthor = require("./PostAuthor");
 
 var _PostAuthor2 = _interopRequireDefault(_PostAuthor);
 
@@ -29076,7 +29076,7 @@ var _default = (function (_React$Component) {
 exports["default"] = _default;
 module.exports = exports["default"];
 
-},{"PostAuthor":386,"react":380}],388:[function(require,module,exports){
+},{"./PostAuthor":386,"react":380}],388:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29115,7 +29115,7 @@ var _default = (function (_React$Component) {
   _createClass(_default, [{
     key: "getPermalink",
     value: function getPermalink() {
-      return "/posts/" + this.props.slug;
+      return "/posts/" + this.props.slug + ".html";
     }
   }, {
     key: "render",
@@ -29170,7 +29170,7 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Post = require("Post");
+var _Post = require("./Post");
 
 var _Post2 = _interopRequireDefault(_Post);
 
@@ -29211,7 +29211,7 @@ var _default = (function (_React$Component) {
 exports["default"] = _default;
 module.exports = exports["default"];
 
-},{"../posts":391,"Post":385,"react":380}],390:[function(require,module,exports){
+},{"../posts":391,"./Post":385,"react":380}],390:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -29232,7 +29232,7 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Post = require("Post");
+var _Post = require("./Post");
 
 var _Post2 = _interopRequireDefault(_Post);
 
@@ -29276,7 +29276,7 @@ var _default = (function (_React$Component) {
 exports["default"] = _default;
 module.exports = exports["default"];
 
-},{"../posts":391,"Post":385,"react":380}],391:[function(require,module,exports){
+},{"../posts":391,"./Post":385,"react":380}],391:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
