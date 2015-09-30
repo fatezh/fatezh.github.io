@@ -1,0 +1,89 @@
+<!DOCTYPE html><html><head><title>Верстающий Фатеж — Наверстай упущенное</title><meta name="viewport" content="width=device-width, initial-scale=1.0, ya-title=fade, ya-dock=fade"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-title" content="Фатеж"/><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/><meta name="theme-color" content="#ffffff"/><link rel="stylesheet" href="/stylesheets/application.css"/><link rel="apple-touch-icon" href="/images/touch-icon.png"/></head><body><script>document.body.className += " in-production"
+</script><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-1522660-23', 'auto');
+ga('send', 'pageview');
+</script><div id="application-root"><table class="application_container" data-reactid=".7cxt28exa8" data-react-checksum="-863745022"><tbody data-reactid=".7cxt28exa8.0"><tr data-reactid=".7cxt28exa8.0.0"><td class="application_header" data-reactid=".7cxt28exa8.0.0.0"><h1 class="application_header-title" data-reactid=".7cxt28exa8.0.0.0.0"><a class="" href="/" data-reactid=".7cxt28exa8.0.0.0.0.0">Верстающий Фатеж</a></h1></td></tr><tr data-reactid=".7cxt28exa8.0.1"><td data-reactid=".7cxt28exa8.0.1.0"><article class="post" data-reactid=".7cxt28exa8.0.1.0.$=1$/posts/4-rspec-best-practices=01html"><header class="post_header" data-reactid=".7cxt28exa8.0.1.0.$=1$/posts/4-rspec-best-practices=01html.0"><h2 class="post_header-title" data-reactid=".7cxt28exa8.0.1.0.$=1$/posts/4-rspec-best-practices=01html.0.0"><a class=" active" href="/posts/4-rspec-best-practices.html" data-reactid=".7cxt28exa8.0.1.0.$=1$/posts/4-rspec-best-practices=01html.0.0.0">RSpec Best Practices 2015</a></h2><small class="post_header-date" data-reactid=".7cxt28exa8.0.1.0.$=1$/posts/4-rspec-best-practices=01html.0.1">30 сентября 2015</small></header><section class="post-contents" data-reactid=".7cxt28exa8.0.1.0.$=1$/posts/4-rspec-best-practices=01html.1"><p>Многие умеют писать тесты<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>но мало кто пишет хорошо. Конструкции знают<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>а получается шифровка:</p>
+<pre><code class="lang-ruby"><span class="hljs-operator"><span class="hljs-keyword">describe</span> <span class="hljs-keyword">User</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-keyword">describe</span> <span class="hljs-string">"#admin?"</span> <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">context</span> <span class="hljs-string">"when user is locked"</span> <span class="hljs-keyword">do</span>
+      # ...
+    <span class="hljs-keyword">end</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span></span>
+</code></pre>
+<p>В этом посте я постараюсь показать<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>как писать понятные<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>интересные и насыщенные тесты с хорошей структурой.</p>
+<h3 id="-">Не указывайте явно тестируемый метод</h3>
+<p>Заинтересуйте читателя<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>сыграв на его инстинктах. Добавьте эмоций и местоимений:</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># плохо</span>
+describe <span class="hljs-string">".authenticate"</span>
+describe <span class="hljs-string">"<span class="hljs-subst">#admin</span>?"</span>
+</code></pre>
+<pre><code class="lang-ruby"><span class="hljs-comment"># хорошо</span>
+<span class="hljs-title">describe</span> <span class="hljs-string">"5 Crazy Methods To See Before You Die"</span>
+describe <span class="hljs-string">"The One Weird Method That Lets You Write To File Atomically"</span>
+</code></pre>
+<h3 id="-context-">Не используйте <code>context</code></h3>
+<p><code>context</code> добавляет вложенности и увеличивает цикломатическую сложность тестов. Не надо так.</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># плохо</span>
+context <span class="hljs-string">"when logged in"</span> <span class="hljs-built_in">do</span>
+  <span class="hljs-keyword">it</span> { is_expected.<span class="hljs-built_in">to</span> respond_with <span class="hljs-number">200</span> }
+<span class="hljs-function"><span class="hljs-keyword">end</span>
+
+<span class="hljs-title">context</span> "<span class="hljs-title">when</span> <span class="hljs-title">logged</span> <span class="hljs-title">out</span>" <span class="hljs-title">do</span></span>
+  <span class="hljs-keyword">it</span> { is_expected.<span class="hljs-built_in">to</span> respond_with <span class="hljs-number">401</span> }
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code class="lang-ruby"># хорошо
+it <span class="hljs-string">"has quite normal HTTP 200 status code if logged in"</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">response</span>.should respond_with <span class="hljs-number">200</span>
+<span class="hljs-keyword">end</span>
+
+it <span class="hljs-string">"has absolutely insane HTTP 401 status code if not logged in"</span> <span class="hljs-keyword">do</span>
+  <span class="hljs-built_in">response</span>.should respond_with <span class="hljs-number">401</span>
+<span class="hljs-keyword">end</span>
+</code></pre>
+<h3 id="-">Один тест — куча проверок</h3>
+<p>Каждый тест должен производить несколько проверок. Так мы сэкономим время на запись и запуск проверок. Сравните:</p>
+<pre><code class="lang-ruby"># плохо
+<span class="hljs-operator"><span class="hljs-keyword">describe</span> <span class="hljs-string">"#reported_conclusion"</span> <span class="hljs-keyword">do</span>
+  subject { <span class="hljs-keyword">test</span>.reported_conclusion }
+
+  <span class="hljs-keyword">context</span> <span class="hljs-string">"when conclusion is true"</span> <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">before</span> { <span class="hljs-keyword">test</span>.conclusion = <span class="hljs-literal">true</span> }
+    it { is_expected.<span class="hljs-keyword">to</span> eq <span class="hljs-string">"Cool"</span> }
+  <span class="hljs-keyword">end</span>
+
+  <span class="hljs-keyword">context</span> <span class="hljs-string">"when conclusion is false"</span> <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">before</span> { <span class="hljs-keyword">test</span>.conclusion = <span class="hljs-literal">false</span> }
+    it { is_expected.<span class="hljs-keyword">to</span> eq <span class="hljs-string">"Not Cool"</span> }
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span></span>
+</code></pre>
+<pre><code class="lang-ruby"># хорошо
+<span class="hljs-operator"><span class="hljs-keyword">describe</span> <span class="hljs-string">"That Conclusion Method All Humans Would Fall In Love"</span> <span class="hljs-keyword">do</span>
+  it <span class="hljs-string">"should be always correct"</span> <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">test</span>.conclusion = <span class="hljs-literal">true</span>
+    <span class="hljs-keyword">test</span>.reported_conclusion.should eq <span class="hljs-string">"Cool"</span>
+
+    <span class="hljs-keyword">test</span>.conclusion = <span class="hljs-literal">false</span>
+    <span class="hljs-keyword">test</span>.reported_conclusion.should eq <span class="hljs-string">"Not Cool"</span>
+  <span class="hljs-keyword">end</span>
+<span class="hljs-keyword">end</span></span>
+</code></pre>
+<h3 id="-should-">Используйте <code>should</code></h3>
+<p>Не пишите тексты тестов в третьем лице. Пусть сраный компьютер знает<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>что он обязан так работать: используйте <code>should</code>. Заодно потренируете скорость набора слова<span class="typograf-oa-sp-lquot"> </span><span class="typograf-oa-lquot">«</span>should». Точно пригодится!</p>
+<pre><code class="lang-ruby"><span class="hljs-comment"># плохо</span>
+<span class="hljs-keyword">it</span> <span class="hljs-string">"does not change timings"</span> do
+  expect(consumption.occur_at).<span class="hljs-keyword">to</span> <span class="hljs-keyword">equal</span>(valid.occur_at)
+<span class="hljs-keyword">end</span>
+</code></pre>
+<pre><code class="lang-ruby"><span class="hljs-comment"># хорошо</span>
+<span class="hljs-keyword">it</span> <span class="hljs-string">"should not change timings"</span> <span class="hljs-built_in">do</span>
+  consumption.occur_at.should == valid.occur_at
+<span class="hljs-keyword">end</span>
+</code></pre>
+<p>Если вы используете данные советы<span class="typograf-oa-comma">,</span><span class="typograf-oa-comma-sp"> </span>вам никогда не будет стыдно за написанное.</p></section><footer class="post_footer" data-reactid=".7cxt28exa8.0.1.0.$=1$/posts/4-rspec-best-practices=01html.2"><section class="post_author" data-reactid=".7cxt28exa8.0.1.0.$=1$/posts/4-rspec-best-practices=01html.2.0"><img src="/images/globa.jpg" alt="" class="post_author-img" data-reactid=".7cxt28exa8.0.1.0.$=1$/posts/4-rspec-best-practices=01html.2.0.0"><h3 class="post_author-name" data-reactid=".7cxt28exa8.0.1.0.$=1$/posts/4-rspec-best-practices=01html.2.0.1"><a href="https://vk.com/pavsekakii" data-reactid=".7cxt28exa8.0.1.0.$=1$/posts/4-rspec-best-practices=01html.2.0.1.0">Павел Глобла</a></h3><p class="post_author-bio" data-reactid=".7cxt28exa8.0.1.0.$=1$/posts/4-rspec-best-practices=01html.2.0.2">Clojure-разработчик, ушедший в Ruby. В детстве любил аттракцион «Осциллограф»</p></section></footer></article></td></tr></tbody></table></div><script src="/javascripts/application.js"></script></body></html>
